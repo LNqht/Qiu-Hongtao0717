@@ -1,4 +1,3 @@
-<%@ page import="com.qiuhongtao.model.User" %>
 <html>
  <head>
    <title>My Online Shop</title>
@@ -24,7 +23,7 @@
                             border-style:solid;
                             border-top-width:0px;
                             border-color:black;" align="center">
-     <a style="color:white;" href="home">Home</a>
+     <a style="color:white;" href="index.jsp">Home</a>
    - <a style="color:white;" href="login.jsp">Login</a>
    - <a style="color:white;" href="productList">Product</a>
    - <a style="color:white;" href="#">FAQ</a>
@@ -33,26 +32,10 @@
    </td>
    </tr>
    <tr height="25"><td align="right"><font size="18" color="blue">
-   Welcome,
-       <%
-            //get session attribute
-           User user=(User) session.getAttribute("user");//name of attribute
-           if(user!=null){
-               //print username
-               out.println(user.getUsername());
-           }else{//print guest
-
-       %>
-       <font size="18" color="red"> Guest</font>
-       <%}//end of else%>
+   Welcome,<font size="18" color="red"> Guest</font>
    </font></td> </tr>
   <tr height="20"><td align="right">
-      <%
-      //if user in session -- print logout --- others --- no logout
-          if(session.getAttribute("user")!=null){
-      %>
-   <br> <a href="logout">Logout</a><!-- request go to controller - LogoutServlet-->
-      <%}//end of if%>
+   <br> <a href="#">Logout</a>
   <br><a href="#">My Cart</a><br/>
 <a href="register.jsp">Register Here</a>
   </td></tr>

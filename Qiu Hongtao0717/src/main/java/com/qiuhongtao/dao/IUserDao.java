@@ -4,7 +4,7 @@ import com.qiuhongtao.model.User;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 public interface IUserDao {

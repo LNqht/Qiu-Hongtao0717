@@ -13,10 +13,10 @@ import java.sql.SQLException;
         name="JDBCDemoServlet",
         urlPatterns = {"/jdbc","/jdbc2","/jdbc.do"},
         initParams = {
-                @WebInitParam(name="driver",value="com.mysql.cj.jdbc.Driver"),
-                @WebInitParam(name="url",value="jdbc:mysql://localhost:3306/userdb"),
-                @WebInitParam(name="username",value="root"),
-                @WebInitParam(name="password",value="0522")
+                @WebInitParam(name="driver",value="com.microsoft.sqlserver.jdbc.SQLServerDriver"),
+                @WebInitParam(name="url",value="jdbc:sqlserver://localhost:1433;database=userdb;encrypt=false"),
+                @WebInitParam(name="username",value="sa"),
+                @WebInitParam(name="password",value="admin123456789")
         },
         loadOnStartup = 1
 )

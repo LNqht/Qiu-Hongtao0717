@@ -1,5 +1,10 @@
 package com.qiuhongtao.week5;
 
+
+
+import com.qiuhongtao.dao.UserDao;
+import com.qiuhongtao.model.User;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -36,14 +41,79 @@ public class LoginServlet extends HttpServlet {
         String username=request.getParameter("username");
         String password=request.getParameter("password");
 
+
+
+        //week7 - mvc - we write jdbc code in DAO . user model
+
+        UserDao userDao=new UserDao();
+        User user=(User) null;
         try {
+            user=userDao.findByUsernamePassword(con,username,password);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        if(user!=null){
+            //valid
+            //week 8 code
+            //add code for remember me
+            String rememberMe=request.getParameter("rememberMe");//1=checked, null if  checked
+            if(rememberMe!=null && rememberMe.equals("1")){
+                //want to remember me
+                //create 3 cookies
+                Cookie usernameCookie=new Cookie("cUsername",user.getUsername());
+                Cookie passwordCookie=new Cookie("cPassword",user.getPassword());
+                Cookie rememberMeCookie=new Cookie("cRememberMe",rememberMe);
+
+                //set age of cookies
+                usernameCookie.setMaxAge(5);
+                passwordCookie.setMaxAge(5);
+                rememberMeCookie.setMaxAge(5);
+                //add 3 cookies into response
+                response.addCookie(usernameCookie);
+                response.addCookie(passwordCookie);
+                response.addCookie(rememberMeCookie);
+
+            }
+
+
+            //valid-- login
+            //week 8 code - demo #1-use cookie for session
+            //create cookie
+            //step 1:create an object of cookie class
+            //Cookie c=new Cookie("sessionid",""+user.getId());
+            //step 2:set age of cookie
+            //c.setMaxAge(10*60);
+            //step 3:add cookie response
+            //response.addCookie(c);
+            //week 8 code
+            //create a session
+            HttpSession session=request.getSession();
+            //check session id
+            System.out.println("session id-->"+session.getId());
+            //set time for session
+            session.setMaxInactiveInterval(10);//for 5 10 section if request not come in - tomcat kill session - set 60*60 == 1h
+
+            //set user model into reuqest
+            //week 8- change request(one page) to session - so we can get session attribute in many jsp page and header
+
+            session.setAttribute("user",user);//set user info in session
+            request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+            //forward
+        }else{
+            //invalid
+            request.setAttribute("message","Username or Password ERROR!!!");
+            //forward
+            request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
+        }
+
+
 
         //lets change code to make MVC
 
         //TODO 4: VALIDATE USER - SELEECT * FROM USERTABLE WHERE USERNAME='XXX'
         // AND PASSWORD='YYY'
-        String sql="select id,username,password,email,gender,birthdate from usertable where username='"+username+"' and password='"+password+"'";
-
+        /*String sql="select id,username,password,email,gender,birthdate from usertable where username='"+username+"' and password='"+password+"'";
+try{
             ResultSet rs =con.createStatement().executeQuery(sql);
             if (rs.next()){
                 //week 5 code
@@ -58,19 +128,19 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("gender",rs.getString("gender"));
                 request.setAttribute("birthDate",rs.getString("birthdate"));
                 //forward to userInfo.jsp
-                request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+                request.getRequestDispatcher("userInfo.jsp").forward(request,response);
 
             }else{
               //out.print("Username or password Error!!!");
                 request.setAttribute("message","Username or Password Error!!!");
-                request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+                request.getRequestDispatcher("login.jsp").forward(request,response);
 
             }//end of else
 
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        }*/
 
     }
 }
