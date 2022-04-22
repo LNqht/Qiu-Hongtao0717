@@ -79,14 +79,16 @@
         <welcome-file>home</welcome-file>
     </welcome-file-list>-->
 
-    <!--<filter>
+    <filter>
         <filter-name>HelloFilter</filter-name>
         <filter-class>com.qiuhongtao.filter.HelloFilter</filter-class>
     </filter>
 
     <filter-mapping>
         <filter-name>HelloFilter</filter-name>
-        <url-pattern>/*</url-pattern>&lt;!&ndash; url of HelloServlet -this filter is only for HelloServlet&ndash;&gt;
-    </filter-mapping>-->
+        <url-pattern>/*</url-pattern><!-- url of HelloServlet -this filter is only for HelloServlet-->
+    </filter-mapping>
+
+    <filter></filter>
 
 </web-app>

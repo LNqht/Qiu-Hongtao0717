@@ -8,20 +8,29 @@
 
 <%@include file="header.jsp"%>
 <h1> User Info</h1>
+<%
+    /*Cookie [] allCookies=request.getCookies();
+    for(Cookie c:allCookies){
+        //get one by one
+        out.println("<br/>"+c.getName()+" --- "+c.getValue());
+    }*/
+    User u=(User) session.getAttribute("user");
 
+%>
 <table>
     <tr>
-        <td>Username:</td><td><%=request.getAttribute("username")%></td>
+        <td>Username:</td><td><%=u.getUsername()%></td>
     </tr><tr>
-        <td>Password:</td><td><%=request.getAttribute("password")%></td>
+    <td>Password:</td><td><%=u.getPassword()%></td>
 </tr><tr>
-        <td>Email:</td><td><%=request.getAttribute("email")%></td>
+    <td>Email:</td><td><%=u.getEmail()%></td>
 </tr><tr>
-    <td>Gender:</td><td><%=request.getAttribute("gender")%></td>
+    <td>Gender:</td><td><%=u.getGender()%></td>
 </tr><tr>
-    <td>Birth Date:</td><td><%=request.getAttribute("birthDate")%></td>
+    <td>Birth Date:</td><td><%=u.getBirthDate()%></td>
 </tr>
 
 </table>
+<a href="updateUser.jsp">Update</a>
 
 <%@include file="footer.jsp"%>

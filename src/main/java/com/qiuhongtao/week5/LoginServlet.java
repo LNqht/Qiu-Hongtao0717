@@ -97,8 +97,12 @@ public class LoginServlet extends HttpServlet {
             //week 8- change request(one page) to session - so we can get session attribute in many jsp page and header
 
             session.setAttribute("user",user);//set user info in session
+            if(user.getUsername().equals("admin")){
+                request.getRequestDispatcher("WEB-INF/views/admin.jsp").forward(request,response);
+            }
             request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
             //forward
+
         }else{
             //invalid
             request.setAttribute("message","Username or Password ERROR!!!");
