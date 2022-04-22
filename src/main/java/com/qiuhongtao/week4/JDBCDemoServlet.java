@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 //use @WebServlet -- more easy - no xml code
-@WebServlet(
+/*@WebServlet(
         name="JDBCDemoServlet",
         urlPatterns = {"/jdbc","/jdbc2","/jdbc.do"},
         initParams = {
@@ -19,7 +19,7 @@ import java.sql.SQLException;
                 @WebInitParam(name="password",value="admin123456789")
         },
         loadOnStartup = 1
-)
+)*/
 public class JDBCDemoServlet extends HttpServlet {
   Connection con=null;
   public void init(){
@@ -43,7 +43,7 @@ public class JDBCDemoServlet extends HttpServlet {
           Class.forName(driver);
           con= DriverManager.getConnection(url,username,password);
 
-          System.out.println("con in init()"+con);//for test
+          //System.out.println("con in init()"+con);//for test
       } catch (ClassNotFoundException | SQLException e) {
           e.printStackTrace();
       }
@@ -53,7 +53,7 @@ public class JDBCDemoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //way 1 - create connection within doget --bad idea
        //dont create here - use here to do insert , update , delete , select
-        System.out.println("con in doGet()"+con);//for test
+        //System.out.println("con in doGet()"+con);//for test
 
     }
 

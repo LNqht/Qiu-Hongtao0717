@@ -3,7 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-<<<<<<< HEAD
     <!-- tomcat read this file to run servlet -->
     <!-- you need to tell tomcat we have created a new servlet -->
     <context-param>
@@ -32,7 +31,7 @@
         <url-pattern>/hello</url-pattern><!--must start with /-->
     </servlet-mapping>
     <!-- we need to tell tomcat we have created a new servlet-->
-    <servlet>
+    <!--<servlet>
         <servlet-name>LifeCycleServlet</servlet-name>
         <servlet-class>com.qiuhongtao.week3.LifeCycleServlet</servlet-class>
     </servlet>
@@ -41,7 +40,7 @@
         <servlet-name>LifeCycleServlet</servlet-name>
         <url-pattern>/life</url-pattern>
     </servlet-mapping>
-     we need to tell tomcat
+    &lt;!&ndash; we need to tell tomcat &ndash;&gt;
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.qiuhongtao.week3.RegisterServlet</servlet-class>
@@ -72,14 +71,22 @@
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
-   <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>JDBCDemoServlet</servlet-name>
         <url-pattern>/jdbc</url-pattern>
     </servlet-mapping>
-    
     <welcome-file-list>
         <welcome-file>home</welcome-file>
-    </welcome-file-list>
-=======
->>>>>>> 83ee8aca3d8128f1a9d628659b3a552cf40227b0
+    </welcome-file-list>-->
+
+    <!--<filter>
+        <filter-name>HelloFilter</filter-name>
+        <filter-class>com.qiuhongtao.filter.HelloFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>HelloFilter</filter-name>
+        <url-pattern>/*</url-pattern>&lt;!&ndash; url of HelloServlet -this filter is only for HelloServlet&ndash;&gt;
+    </filter-mapping>-->
+
 </web-app>

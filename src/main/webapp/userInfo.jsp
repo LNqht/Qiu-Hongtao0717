@@ -8,21 +8,14 @@
 
 <%@include file="header.jsp"%>
 <h1> User Info</h1>
-<%
-    Cookie [] allCookies=request.getCookies();
-    for(Cookie c:allCookies){
-        //get one by one
-        out.println("<br/>"+c.getName()+" --- "+c.getValue());
-    }
 
-%>
 <table>
     <tr>
         <td>Username:</td><td><%=request.getAttribute("username")%></td>
     </tr><tr>
-    <td>Password:</td><td><%=request.getAttribute("password")%></td>
+        <td>Password:</td><td><%=request.getAttribute("password")%></td>
 </tr><tr>
-    <td>Email:</td><td><%=request.getAttribute("email")%></td>
+        <td>Email:</td><td><%=request.getAttribute("email")%></td>
 </tr><tr>
     <td>Gender:</td><td><%=request.getAttribute("gender")%></td>
 </tr><tr>

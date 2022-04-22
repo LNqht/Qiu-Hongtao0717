@@ -54,10 +54,10 @@ public class RegisterServlet extends HttpServlet {
             Statement st = con.createStatement();
             String sql = "insert into usertable(username,password,email,gender,birthdate)" +
                     " values('" + username + "','" + password + "','" + email + "','" + gender + "','" + birthDate + "')";
-            System.out.println("sql" + sql);//check sql is ok or not
+            //System.out.println("sql" + sql);//check sql is ok or not
 
             int n = st.executeUpdate(sql);
-            System.out.println("n-->" + n);//== 1 success--insert
+            //System.out.println("n-->" + n);//== 1 success--insert
 
 
             //7. seleect all rows from user table

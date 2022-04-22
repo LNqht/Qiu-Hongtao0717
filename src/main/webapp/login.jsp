@@ -10,11 +10,11 @@
 <%@include file="header.jsp"%>
 <h1> Login</h1>
 <%
-if(!(request.getAttribute("message")==null)){
+    if(!(request.getAttribute("message")==null)){
 
-    //error
-    out.println(request.getAttribute("message"));
-}
+        //error
+        out.println(request.getAttribute("message"));
+    }
 %>
 <%
     //read cookies
