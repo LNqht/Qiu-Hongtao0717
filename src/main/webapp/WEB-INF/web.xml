@@ -21,15 +21,15 @@
         <param-name>password</param-name>
         <param-value>123456</param-value>
     </context-param>
-    <servlet>
+    <!--<servlet>
         <servlet-name>giveanyname</servlet-name>
-        <servlet-class>com.qiuhongtao.week2.HelloWorldServlet</servlet-class><!-- u need to add package also-->
+        <servlet-class>com.qiuhongtao.week2.HelloWorldServlet</servlet-class>&lt;!&ndash; u need to add package also&ndash;&gt;
     </servlet>
     
     <servlet-mapping>
         <servlet-name>giveanyname</servlet-name>
-        <url-pattern>/hello</url-pattern><!--must start with /-->
-    </servlet-mapping>
+        <url-pattern>/hello</url-pattern>&lt;!&ndash;must start with /&ndash;&gt;
+    </servlet-mapping>-->
     <!-- we need to tell tomcat we have created a new servlet-->
     <!--<servlet>
         <servlet-name>LifeCycleServlet</servlet-name>
