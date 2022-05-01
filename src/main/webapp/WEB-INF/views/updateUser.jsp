@@ -24,5 +24,8 @@
     Birth Date <input type="text" name="birthDate" <%=u.getBirthDate()%>/>(yyyy-mm-dd)<br/>
     <input type="submit" value="Save Changes"/>
 
+    <%
+        session.invalidate();
+    %>
 </form>
 <%@include file="footer.jsp"%>
