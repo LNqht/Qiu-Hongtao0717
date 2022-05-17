@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Category {
     private int categoryId;
-    private static String categoryName;
+    private  String categoryName;
     private String description;
     private boolean active;
 
@@ -25,6 +25,7 @@ public class Category {
     public int getCategoryId() {
         return categoryId;
     }
+
 
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
@@ -76,7 +77,6 @@ public class Category {
                 c.setDescription(resultSet.getString("Description"));
                 list.add(c);
             }
-            return list;
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -84,17 +84,18 @@ public class Category {
     }
     public static String findByCategoryId(Connection con, int categoryId){
         String sql="select * from Category where CategoryId=?";
+        String categoryName=null;
         try{
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setInt(1,categoryId);
             ResultSet resultSet=statement.executeQuery();
-            String categoryName=null;
             while(resultSet.next()){
                 categoryName=resultSet.getString("CategoryName");
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
+        System.out.println(categoryName);
         return categoryName;
     }
 }
