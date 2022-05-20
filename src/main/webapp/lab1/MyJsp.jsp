@@ -12,11 +12,17 @@
 </head>
 <body>
 <h3>i am MyJsp.jsp</h3>
+<form method="post" action="MyDearServletURL">
+    name <input type="text" name="name"></br>
+    class <input type="text" name="Class"></br>
+    ID <input type="text" name="ID"></br>
+    <button type="submit" name="submit" value="Send data to server">Send data to server</button>
+</form>
 <form method="post" action="MyDearJsp.jsp">
-name <input type="text" name="name"></br>
-class <input type="text" name="Class"></br>
-ID <input type="text" name="ID"></br>
-<button type="submit" name="submit" value="Send data to server">Send data to server</button>
+    name <input type="text" name="name"></br>
+    class <input type="text" name="Class"></br>
+    ID <input type="text" name="ID"></br>
+    <button type="submit" name="submit" value="Send data to server">Send data to server</button>
 </form>
 </body>
 </html>
