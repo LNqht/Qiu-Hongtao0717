@@ -15,7 +15,7 @@
 
 %>
 <form method="post" action="updateUser"><!--action to link jsp  to servlet -->
-    <input type="hidden" name="id" value="<%=u.getId()%>">
+    <!--<input type="hidden" name="id" value="<%=u.getId()%>">-->
     Username <input type="text" name="username" value="<%=u.getUsername()%>"/><br/>
     password <input type="password" name="password" value="<%=u.getPassword()%>"/><br/>
     Email <input type="text" name="email" <%=u.getEmail()%>/><br/>
