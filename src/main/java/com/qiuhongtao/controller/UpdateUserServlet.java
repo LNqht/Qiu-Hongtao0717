@@ -61,6 +61,6 @@ public class UpdateUserServlet extends HttpServlet {
             throwables.printStackTrace();
         }
 
-        request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+        request.getRequestDispatcher("accountDetails").forward(request,response);
     }
 }
