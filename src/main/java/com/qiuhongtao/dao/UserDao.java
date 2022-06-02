@@ -40,7 +40,20 @@ public class UserDao implements IUserDao{
 
     @Override
     public User findById(Connection con, Integer id) throws SQLException {
-        return null;
+        String sql="select * from usertable where id="+id;
+        PreparedStatement st=con.prepareStatement(sql);
+        ResultSet rs= st.executeQuery();
+        User user=null;
+        if(rs.next()){
+            user=new User();
+            user.setId(rs.getInt("id"));
+            user.setUsername(rs.getString("username"));
+            user.setPassword(rs.getString("password"));
+            user.setEmail(rs.getString("email"));
+            user.setGender(rs.getString("gender"));
+            user.setBirthDate(rs.getDate("birthdate"));
+        }
+        return user;
     }
 
     @Override
